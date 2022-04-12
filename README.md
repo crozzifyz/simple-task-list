@@ -10,6 +10,32 @@ npm install
 cp .env.example .env
 ```
 
+## Database Migration and Seed
+```
+# start docker for hosting local database
+docker-compose up -d
+
+# run database migration
+npm run migrate
+
+# run database seed for test
+npm run seed:test
+```
+```
+# optional
+# run reset migration and re-migration
+npm run migrate:reset
+
+# run reset migration, re-migration and re-seed for test
+npm run migrate:reset-test
+
+# run specific seed file if needed
+npx knex seed:run --specific=seed_file_name.ts
+
+# create migrate file if needed
+npx knex migrate:make create-table-test
+```
+
 ## Build & Run
 ```
 # build
