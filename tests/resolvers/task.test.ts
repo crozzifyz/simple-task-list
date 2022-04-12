@@ -203,7 +203,7 @@ describe('TaskResolver.reorderTask', () => {
 	})
 
 	test('reorder task with out of bound position should throw out of bound error', async () => {
-		const { query, mutate } = await testClient()
+		const { mutate } = await testClient()
 		const givenId = 1
 		const givenOrder = 999
 		const response = await mutate({
