@@ -27,6 +27,14 @@ jobs:
           --health-retries 5
 
     steps:
+      - name: Checkout branch
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js 14.17.1
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.17.1
+
       - name: Install dependencies
         run: npm install
 
