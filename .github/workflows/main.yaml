@@ -9,24 +9,15 @@ on:
 jobs:
   setup-test:
     runs-on: ubuntu-latest
-    container: node:14.17.1
-    services:
-      postgres:
-        image: postgres:13.3
-        env:
-          POSTGRES_DB: simple-task-list-db_test
-          POSTGRES_PASSWORD: postgres
-          POSTGRES_PORT: 2345
-          POSTGRES_USER: postgres
-        ports:
-          - 2345:5432
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
 
     steps:
+      - uses: harmon758/postgresql-action@v1
+        with:
+          postgresql version: '13.3'
+          postgresql db:: 'simple-task-list-db_test'
+          postgresql user:: 'postgres'
+          postgresql password:: 'postgres'
+
       - name: Checkout branch
         uses: actions/checkout@v2
 
