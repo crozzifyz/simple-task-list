@@ -7,6 +7,11 @@
         "dev": "nodemon src/index.ts",
         "build": "rm -rf dist/ && tsc -p .",
         "start": "node dist/src/index.js",
+        "migrate": "knex migrate:latest",
+        "migrate:rollback": "knex migrate:rollback --all",
+        "migrate:reset": "npm run migrate:rollback && npm run migrate",
+        "migrate:reset-test": "npm run migrate:reset && npm run seed:test",
+        "seed:test": "knex seed:run --specific=test.ts",
 		"sandbox": "ts-node sandbox.ts",
         "test": "jest --forceExit --runInBand --detectOpenHandles"
     },
