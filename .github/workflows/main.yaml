@@ -7,7 +7,9 @@ on:
     branches: [ main ]
 
 env:
+  DB_PORT: ${{ secrets.DB_PORT }}
   DB_PORT_TEST: ${{ secrets.DB_PORT_TEST }}
+  NODE_ENV: ${{ secrets.NODE_ENV }}
 
 jobs:
   setup-test:
@@ -16,7 +18,7 @@ jobs:
     steps:
       - uses: harmon758/postgresql-action@v1
         with:
-          postgresql version: '13.3'
+          postgresql version: '11'
           postgresql db: 'simple-task-list-db_test'
           postgresql user: 'postgres'
           postgresql password: 'postgres'
