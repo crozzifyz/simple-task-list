@@ -40,6 +40,9 @@ export namespace ListService {
 		if (Db.isErrorDuplicate(createdList)) {
 			throw new ApolloError('Duplicated data')
 		}
+		if (Db.isErrorUniqueConstraint(createdList)) {
+			throw new ApolloError('Violates unique constraint')
+		}
 
 		return {
 			...createdList,

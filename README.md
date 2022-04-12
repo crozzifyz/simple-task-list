@@ -30,10 +30,15 @@ Run database seed for test
 npm run seed:test
 ```
 
-## Build & Run
+## Build, Test and Run
 Build
 ```
 npm run build
+```
+
+Test
+```
+npm run test
 ```
 
 Run

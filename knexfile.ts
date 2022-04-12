@@ -28,6 +28,7 @@ const testConfig = {
 	...postgresqlConfig,
 	connection: {
 		...postgresqlConfig.connection,
+		port: process.env.DB_PORT_TEST || 2345,
 		database: `${postgresqlConfig.connection.database}_test`,
 	},
 }

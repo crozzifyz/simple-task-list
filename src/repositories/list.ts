@@ -20,12 +20,12 @@ export namespace ListRepo {
 		return masterQuery(where).first()
 	}
 
-	export const insert = async (data: Partial<List>): Promise<List | Db.ErrorDuplicate> => {
+	export const insert = async (data: Partial<List>): Promise<List | Db.ErrorDuplicate | Db.ErrorUniqueConstraint> => {
 		try {
 			const result: List[] = await Db.conn(table).insert(data).returning('*')
 			return result[0]
 		} catch (err) {
-			if (Db.isErrorDuplicate(err)) {
+			if (Db.isErrorDuplicate(err) || Db.isErrorUniqueConstraint(err)) {
 				return err
 			}
 			throw err

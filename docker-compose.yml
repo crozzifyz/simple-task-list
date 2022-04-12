@@ -11,4 +11,16 @@ services:
     volumes:
       - ./pgdata:/var/lib/postgresql/data
     ports:
-      - '5432:5432'
+      - '${DB_PORT}:5432'
+
+  db_test:
+    image: postgres:13.3
+    environment:
+      POSTGRES_DB: simple-task-list-db_test
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - '${DB_PORT_TEST}:5432'
+
+volumes:
+  app-volume:

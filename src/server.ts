@@ -4,7 +4,7 @@ import { buildSchema } from 'type-graphql'
 import ListResolver from './resolvers/ListResolver'
 import TaskResolver from './resolvers/TaskResolver'
 
-const schema = async () => {
+export const schema = async () => {
 	return await buildSchema({
 		resolvers: [ListResolver, TaskResolver],
 	})

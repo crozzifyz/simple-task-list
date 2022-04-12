@@ -26,6 +26,7 @@ export namespace TaskService {
 			status: Status.TODO,
 			order: existingTasks.length + 1,
 		})
+
 		if (Db.isErrorDuplicate(createdTask)) {
 			throw new ApolloError('Duplicated data')
 		}

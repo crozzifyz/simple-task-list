@@ -1,49 +1,50 @@
 {
-    "name": "simple-task-list",
-    "version": "1.0.0",
-    "description": "The app is made up of lists and tasks. A list has a title and an ordered list of tasks. A task has a title and a status indicating whether or not it has been completed.",
-    "main": "dist/index.js",
-    "scripts": {
-        "dev": "nodemon src/index.ts",
-        "build": "rm -rf dist/ && tsc -p .",
-        "start": "node dist/src/index.js",
-        "migrate": "knex migrate:latest",
-        "migrate:rollback": "knex migrate:rollback --all",
-        "migrate:reset": "npm run migrate:rollback && npm run migrate",
-        "migrate:reset-test": "npm run migrate:reset && npm run seed:test",
-        "seed:test": "knex seed:run --specific=test.ts",
+	"name": "simple-task-list",
+	"version": "1.0.0",
+	"description": "The app is made up of lists and tasks. A list has a title and an ordered list of tasks. A task has a title and a status indicating whether or not it has been completed.",
+	"main": "dist/index.js",
+	"scripts": {
+		"dev": "nodemon src/index.ts",
+		"build": "rm -rf dist/ && tsc -p .",
+		"start": "node dist/src/index.js",
+		"migrate": "knex migrate:latest",
+		"migrate:rollback": "knex migrate:rollback --all",
+		"migrate:reset": "npm run migrate:rollback && npm run migrate",
+		"migrate:reset-test": "npm run migrate:reset && npm run seed:test",
+		"seed:test": "knex seed:run --specific=test_data.ts",
 		"sandbox": "ts-node sandbox.ts",
-        "test": "jest --forceExit --runInBand --detectOpenHandles"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/crozzifyz/simple-task-list.git"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/crozzifyz/simple-task-list/issues"
-    },
-    "homepage": "https://github.com/crozzifyz/simple-task-list#readme",
-    "dependencies": {
-        "apollo-server": "^3.6.7",
-        "class-validator": "^0.13.2",
-        "dotenv": "^16.0.0",
-        "graphql": "^15.8.0",
-        "knex": "^0.95.9",
-        "path": "^0.12.7",
-        "pg": "^8.7.3",
-        "reflect-metadata": "^0.1.13",
-        "type-graphql": "^1.1.1"
-    },
-    "devDependencies": {
-        "@types/node": "^17.0.23",
-        "apollo-server-testing": "^2.25.3",
-        "jest": "^27.5.1",
-        "nodemon": "^2.0.15",
-        "ts-jest": "^27.1.4",
-        "ts-node": "^10.7.0",
-        "typescript": "^4.6.3"
-    }
+		"test": "jest --forceExit --runInBand --detectOpenHandles"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/crozzifyz/simple-task-list.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/crozzifyz/simple-task-list/issues"
+	},
+	"homepage": "https://github.com/crozzifyz/simple-task-list#readme",
+	"dependencies": {
+		"apollo-server": "^2.19.1",
+		"class-validator": "^0.13.2",
+		"dotenv": "^16.0.0",
+		"graphql": "^15.8.0",
+		"knex": "^0.95.9",
+		"path": "^0.12.7",
+		"pg": "^8.7.3",
+		"reflect-metadata": "^0.1.13",
+		"type-graphql": "^1.1.1"
+	},
+	"devDependencies": {
+		"@types/jest": "^27.4.1",
+		"@types/node": "^17.0.23",
+		"apollo-server-testing": "^2.19.1",
+		"jest": "^27.5.1",
+		"nodemon": "^2.0.15",
+		"ts-jest": "^27.1.4",
+		"ts-node": "^10.7.0",
+		"typescript": "^4.6.3"
+	}
 }

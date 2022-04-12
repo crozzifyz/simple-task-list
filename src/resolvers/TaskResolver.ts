@@ -30,10 +30,10 @@ class TaskUpdateInput {
 	@Field(() => Int)
 	id: number
 
-	@Field({ nullable: true })
+	@Field()
 	title: string
 
-	@Field(() => Status, { nullable: true })
+	@Field(() => Status)
 	status: Status
 }
 

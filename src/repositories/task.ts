@@ -42,10 +42,4 @@ export namespace TaskRepo {
 
 		return result.length > 0 ? result[0] : undefined
 	}
-
-	export const bulkUpdate = async (tasks: Partial<Task>[]): Promise<Task[]> => {
-		const result: Task[] = await Db.conn(table).update(tasks).returning('*')
-
-		return result.length > 0 ? result : []
-	}
 }
