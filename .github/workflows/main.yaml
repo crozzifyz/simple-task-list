@@ -17,9 +17,9 @@ jobs:
       - uses: harmon758/postgresql-action@v1
         with:
           postgresql version: '13.3'
-          postgresql db:: 'simple-task-list-db_test'
-          postgresql user:: 'postgres'
-          postgresql password:: 'postgres'
+          postgresql db: 'simple-task-list-db_test'
+          postgresql user: 'postgres'
+          postgresql password: 'postgres'
 
       - name: Checkout branch
         uses: actions/checkout@v2
